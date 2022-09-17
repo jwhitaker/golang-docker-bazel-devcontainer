@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "echoer_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/thewhitakers/echoer/cmd/echoer",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/app",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_binary(
+    name = "echoer",
+    embed = [":echoer_lib"],
+    visibility = ["//visibility:public"],
+)
