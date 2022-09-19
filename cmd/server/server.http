@@ -3,5 +3,8 @@ http://localhost:3000/
 ###
 
 POST http://localhost:3000/
+Content-Type: application/json
 
-msg="The request says Hello World"
+{
+    "message": "The request says Hello World"
+}
